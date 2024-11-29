@@ -5,12 +5,12 @@
     {{ car.model }}
 
     {% if user in car.drivers.all %}
-      <form method="post" action="{% url 'taxi:car-remove-driver' pk=car.id %}">
+      <form method="post" action="{% url 'taxi:add-or-remove-car-driver' pk=car.id %}">
         {% csrf_token %}
         <input type="submit" value="Delete me from this car" class="btn btn-danger link-to-page">
       </form>
     {% else %}
-      <form method="post" action="{% url 'taxi:car-add-driver' pk=car.id %}">
+      <form method="post" action="{% url 'taxi:add-or-remove-car-driver' pk=car.id %}">
         {% csrf_token %}
         <input type="submit" value="Assign me to this car" class="btn btn-success link-to-page">
       </form>
